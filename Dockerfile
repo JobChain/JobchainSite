@@ -13,9 +13,9 @@ RUN apt-get install -y git
 
 RUN mkdir JobchainSite
 COPY requirements.txt /JobchainSite/requirements.txt
-RUN pip3 install -r /JobchainSite/requirements.txt
+RUN pip3 install -r /JobchainSite/requirements.txt --user
 RUN mkdir JobchainSite/src
 COPY src/* /JobchainSite/src/
 WORKDIR "JobchainSite/src"
-EXPOSE 80
+EXPOSE 8080
 CMD python3 server.py
