@@ -2,4 +2,4 @@ pip3 install -r requirements.txt --user
 cd src/static
 npm install
 cd ../
-python3 server.py
+python3 app.py
