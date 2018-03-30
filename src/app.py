@@ -6,8 +6,13 @@ from sqlalchemy import create_engine
 import random
 app = Flask(__name__, template_folder='./static')
 
-@app.route("/")
+@app.route("/", methods=['GET'])
 def index():
+    errors = []
+    results = {}
+    if request.method == "GET":
+        
+        pass
     return render_template('index.html')
 
 if __name__ == '__main__':
