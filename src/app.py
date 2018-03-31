@@ -11,12 +11,15 @@ db = PSQL()
 session = db.session
 print(session)
 
+@app.route('/components/<path:path>')
+def serve_partial(path):
+    return render_template('/components/{}'.format(path))
+
 @app.route("/", methods=['GET'])
 def index():
     errors = []
     results = {}
     if request.method == "GET":
-
         pass
     return render_template('index.html')
 

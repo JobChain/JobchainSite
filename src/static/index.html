@@ -1,1 +1,29 @@
-<h1>Jobchain</h1>
+<!DOCTYPE html>
+<html lang-"en" ng-app="myApp">
+    <head>
+        <title>Jobchain</title>
+
+        <style type="text/css">
+            /**
+             * Hide when Angular is not yet loaded and initialized
+             */
+            [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+              display: none !important;
+            }
+          </style>
+    </head>
+    <body>
+        <div ng-view ng-cloak>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+            <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+            <!--<script src="app.js"></script>-->
+            <script src="{{ url_for('static', filename='app.js') }}"></script>
+
+            <!-- Controllers -->
+            <script src="components/home/home.controller.js"></script>
+        </div>
+    </body>
+</html>

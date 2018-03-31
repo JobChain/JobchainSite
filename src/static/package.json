@@ -1,0 +1,22 @@
+{
+  "name": "jobchain-site",
+  "version": "0.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {},
+  "dependencies": {},
+  "engines": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JobChain/jobchain-app"
+  },
+  "keywords": [],
+  "author": "Jobchain",
+  "contributors": [
+    "Calvin Chan <calvinch4n@gmail.com> (http://calvinch4n.com)",
+    "Sufien Tout",
+    "Tyler Zhang",
+    "Elman Chao"
+  ],
+  "license": "MIT"
+}

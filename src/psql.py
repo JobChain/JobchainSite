@@ -2,7 +2,7 @@ from sqlalchemy import Column, ForeignKey, Integer, String, MetaData, Date, Bool
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, sessionmaker
 from sqlalchemy import create_engine
-import os
+import os, sys
 
 Base = declarative_base()
 
