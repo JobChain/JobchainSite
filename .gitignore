@@ -102,6 +102,9 @@ ENV/
 
 # node modules
 node_modules/
+<<<<<<< HEAD
 
 # Secrets!!!
 env
+=======
+>>>>>>> 15fd1f70cc9d43a264d316d3ad0fb5c22ad098e7
