@@ -6,7 +6,7 @@ from sqlalchemy import create_engine
 from psql import User, Work, Education, PSQL, CheckedUser
 import random
 
-app = Flask(__name__, template_folder='./static')
+app = Flask(__name__, template_folder='./static', static_folder="./static", static_url_path="/src/static")
 db = PSQL()
 session = db.session
 print(session)
