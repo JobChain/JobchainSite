@@ -11,6 +11,14 @@ class User(Base):
 
     id = Column(String, primary_key=True)
     name = Column(String, nullable=False)
+
+    @property
+    def serialize(self):
+        return {
+            # 'id': self.id,
+            'name': str(self.name).strip(),
+        }
+
     def __repr__(self):
        return "<User(id='%s', name='%s')>" % (
                             self.id, self.name)
@@ -25,6 +33,17 @@ class Work(Base):
     start_date = Column(Date)
     end_date = Column(Date)
     current = Column(Boolean)
+
+    @property
+    def serialize(self):
+        return {
+            # 'id': self.id,
+            'company': str(self.company_name).strip(),
+            'position': str(self.job_title).strip(),
+            'location': str(self.location).strip(),
+            'start_date': self.start_date,
+            'end_date': self.start_date
+        }
 
     def __repr__(self):
        return "<Work(name='%s', user id='%s', job title='%s')>" % (
@@ -41,6 +60,17 @@ class Education(Base):
     end_date = Column(Date)
     current = Column(Boolean)
     duration = Column(String)
+
+    @property
+    def serialize(self):
+        return {
+            # 'id': self.id,
+            'school': str(self.school_name).strip(),
+            'program': str(self.program).strip(),
+            'location': str(self.location).strip(),
+            'start_date': self.start_date,
+            'end_date': self.start_date
+        }
 
     def __repr__(self):
        return "<Education(name='%s', user id='%s', program='%s')>" % (
