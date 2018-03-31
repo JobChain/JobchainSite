@@ -10,6 +10,10 @@ app = Flask(__name__, template_folder='./static', static_folder="./static", stat
 db = PSQL()
 session = db.session
 
+@app.route('/components/<path:path>')
+def serve_partial(path):
+    return render_template('/components/{}'.format(path))
+
 @app.route('/data', methods = ['GET'])
 def api_data():
     import pdb
