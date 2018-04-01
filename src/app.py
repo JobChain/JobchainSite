@@ -5,10 +5,13 @@ from sqlalchemy.orm import relationship, sessionmaker
 from sqlalchemy import create_engine
 from psql import User, Work, Education, PSQL, CheckedUser
 import random
+import json
+from datetime import datetime
 
 app = Flask(__name__, template_folder='./static', static_folder="./static", static_url_path="/src/static")
-db = PSQL()
-session = db.session
+
+# db = PSQL()
+# session = db.session
 
 @app.route('/components/<path:path>')
 def serve_partial(path):
@@ -30,6 +33,35 @@ def api_data():
 
     resp = Response(js, status=200, mimetype='application/json')
     return resp
+
+@app.route('/hardcoded_data', methods = ['GET'])
+def get_json():
+    with open('../LINKEDINUSER.json') as linkedinuser_data:
+        linkedinuser = (json.load(linkedinuser_data))['linkedinuser']
+    with open('../WORK.json') as work_data:
+        work = (json.load(work_data))['work']
+
+    users = {item['id']:item for item in linkedinuser}
+
+    for w in work:
+        c = {
+            'company_name': w['company_name'],
+            'start_date': w['start_date'],
+            'end_date': w['end_date'],
+            'location': w['location']
+        }
+        if 'companies' in users[w['user_id']]:
+            users[w['user_id']]['companies'].append(c)
+        else:
+            users[w['user_id']]['companies'] = [c]
+
+    for u in users:
+        if 'companies' in users[u]:
+            users[u]['companies'].sort(key=lambda x: datetime.strptime(x['start_date'], "%Y-%m-%d"))
+        else:
+            users[u]['companies'] = []
+
+    return json.dumps(users)
 
 @app.route("/")
 def index():

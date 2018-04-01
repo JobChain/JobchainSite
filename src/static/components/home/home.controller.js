@@ -1,11 +1,26 @@
 angular.module('myApp')
-    .controller('homeCtrl', ['$http', '$scope',
-        function ($http, $scope) {
+    .controller('homeCtrl', ['$scope', '$http', '$timeout',
+        function ($scope, $http, $timeout) {
             console.log('Home controller running...');
+            $scope.showTable = false;
 
-            angular.element(document).ready(function() {
-                dTable = $('#user_table')
-                dTable.DataTable();
+            $http({
+                method: 'GET',
+                url: "/hardcoded_data",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).then(function success(response) {
+                $scope.users = response.data;
+
+                $timeout( function(){
+                    dTable = $('#user_table');
+                    dTable.DataTable();
+                    $scope.showTable = true;
+                }, 0);
+
+            }, function err(response) {
+                console.log('Error grabbing data');
             });
             console.log('Datatable created');
         }]);
