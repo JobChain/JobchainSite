@@ -5,11 +5,16 @@ class UserModel(db.Model):
     id = db.Column(db.String, primary_key=True)
     name = db.Column(db.String, nullable=False)
 
+    works = db.relationship('WORK', lazy='dynamic')
+    educations = db.relationship('EDUCATION', lazy='dynamic')
+    
     def __init__(self, name):
         self.name = name
 
     def json(self):
-        return {'name':self.name, 'items': [item.json() for item in self.items.all()]}
+        return {'name':self.name,
+                'work': [work.json() for work in self.works.all()],
+                'education':[education.json() for education in self.educations.all()]}
 
     @classmethod
     def find_by_name(cls, name):
