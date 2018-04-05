@@ -15,15 +15,16 @@ class User(Resource):
     parser = reqparse.RequestParser()
 
     def get(self, id):
-        user = UserModel.find_by_id(id):
+        user = UserModel.find_by_id(int(id))
 
         if user:
             return user.json()
         else:
             return {'message': 'User not in Database'}, 404
 
+    @jwt_required()
     def delete(self, id):
-        user = UserModel.find_by_id()
+        user = UserModel.find_by_id(int(id))
 
         if user:
             user.delete_from_db()
