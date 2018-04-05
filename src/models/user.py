@@ -1,6 +1,6 @@
 from db import db
 
-class User(db.Model):
+class UserModel(db.Model):
     __tablename__ = 'LINKEDINUSER'
     id = db.Column(db.String, primary_key=True)
     name = db.Column(db.String, nullable=False)

@@ -1,4 +1,8 @@
 Flask==0.11.1
+Flask
+Flask-RESTful
+Flask-JWT
+Flask-SQLAlchemy
 sqlalchemy
 psycopg2
 gunicorn
