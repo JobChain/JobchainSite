@@ -1,17 +1,32 @@
 from flask import Flask, Response, render_template, request, json, jsonify
+from flask_restful import Api
 from sqlalchemy import Column, ForeignKey, Integer, String, MetaData, Date, Boolean, Sequence
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, sessionmaker
 from sqlalchemy import create_engine
 from psql import User, Work, Education, PSQL, CheckedUser
+from security import authenticate, identity
+from resources.user import User
+
+from flask_jwt import JWT
+from datetime import timedelta
 import random
 import json
 from datetime import datetime
 
 app = Flask(__name__, template_folder='./static', static_folder="./static", static_url_path="/src/static")
-
+app.config['JWT_EXPIRATION_DELTA'] = timedelta(seconds=1800)
+app.secret_key = 'scrappingboys'
+api = Api(app)
 # db = PSQL()
 # session = db.session
+
+#Use {url}/auth to get jwt token for endpoints decorated with @jwt_required
+#Payload = {username:str, password:str}
+jwt = JWT(app, authenticate, identity)
+
+#look at /resources/user.py
+api.add_resource(User, '/user/<str:id>')
 
 @app.route('/components/<path:path>')
 def serve_partial(path):
