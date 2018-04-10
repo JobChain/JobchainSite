@@ -1,23 +1,10 @@
-<h1>Waterloo Works</h1>
+<main-navbar></main-navbar>
 
-<table width="100%" cellspacing="0" id="user_table" class="users list dtable" border="1" ng-show="showTable">
-    <thead id="TblHead">
-        <tr>
-            <td>LinkedIn URL</td>
-            <td>Co-op 1</td>
-            <td>Co-op 2</td>
-            <td>Co-op 3</td>
-            <td>Co-op 4</td>
-            <td>Co-op 5</td>
-            <td>Co-op 6</td>
-        </tr>
-    </thead>
-    <tbody>
-        <tr ng-repeat="u in users">
-            <td>{{ '{{u.id}}' }}</td>
-            <td ng-repeat="i in [0, 1, 2, 3, 4, 5]">
-                {{ '{{ (u.companies[i]).company_name }}' }}
-            </td>
-        </tr>
-    </tbody>
-</table>
+<span class="headingSection">
+    <h1>Waterloo Twerks</h1>
+    <div class="description">
+        <div>More stuff coming soon... Stay tuned!</div>
+    </div>
+</span>
+
+<main-table></main-table>

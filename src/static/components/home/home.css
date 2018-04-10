@@ -1,12 +1,17 @@
+html {
+    background-color: white;
+}
+
 h1 {
-    margin: 50px;
+    font-weight: bold;
+    margin: 35px;
+    font-family: "Open Sans", Arial, Helvetica, Sans-Serif;
 }
 
-#user_table_wrapper {
-    margin: 50px;
+.description {
+    font-family: "Open Sans", Arial, Helvetica, Sans-Serif;
 }
 
-td {
-    padding: 5px !important;
-    min-width: 100px;
+.headingSection {
+    text-align: center;
 }

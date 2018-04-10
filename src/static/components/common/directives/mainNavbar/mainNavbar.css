@@ -1,0 +1,12 @@
+.title {
+    font-size: 18px;
+    font-weight: 600;
+    font-family: "Open Sans", Arial, Helvetica, Sans-Serif;
+    color: white;
+    background-color: black !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+    padding-left: 10px !important;
+}

@@ -1,0 +1,26 @@
+<div class="loader_container" ng-show="loading">
+    <!--<div class="loader"></div>-->
+    <img ng-src="/src/static/assets/tina.gif" alt="Loading">
+</div>
+
+<table width="100%" cellspacing="0" id="user_table" class="users list dtable" border="1" ng-show="showTable">
+    <thead id="TblHead">
+        <tr>
+            <td>LinkedIn URL</td>
+            <td>Co-op 1</td>
+            <td>Co-op 2</td>
+            <td>Co-op 3</td>
+            <td>Co-op 4</td>
+            <td>Co-op 5</td>
+            <td>Co-op 6</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="u in users">
+            <td>{{ '{{u.id}}' }}</td>
+            <td ng-repeat="i in [0, 1, 2, 3, 4, 5]">
+                {{ '{{ (u.companies[i]).company_name }}' }}
+            </td>
+        </tr>
+    </tbody>
+</table>
