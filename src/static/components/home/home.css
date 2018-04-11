@@ -2,14 +2,29 @@ html {
     background-color: white;
 }
 
+.heading {
+    position: absolute;
+    width: 100%;
+}
+
 h1 {
+    background-color: #eee;
+    background: rgba(255,255,255,.8);
+    text-transform: uppercase;
     font-weight: bold;
-    margin: 35px;
-    font-family: "Open Sans", Arial, Helvetica, Sans-Serif;
+    padding: 25px;
+    margin: 0;
+    font-family: "BureauGrotCond Book",impact,"avenir next condensed heavy","Droid Sans",sans-serif;
+}
+
+.background {
+    width: 100%;
 }
 
 .description {
-    font-family: "Open Sans", Arial, Helvetica, Sans-Serif;
+    padding-top:30px;
+    font-size: 1.6rem;
+    font-family: georgia,"droid serif","Times New Roman",Times,serif;
 }
 
 .headingSection {

@@ -1,5 +1,5 @@
 Flask==0.11.1
-Flask-RESTful
+flask-restful
 Flask-JWT
 Flask-SQLAlchemy
 sqlalchemy

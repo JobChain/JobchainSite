@@ -1,7 +1,9 @@
 .title {
+    font-weight: 300;
     font-size: 18px;
-    font-weight: 600;
-    font-family: "Open Sans", Arial, Helvetica, Sans-Serif;
+    letter-spacing: .045rem;
+    text-transform: uppercase;
+    font-family: "BureauGrotCond Book",impact,"avenir next condensed heavy","Droid Sans",sans-serif;
     color: white;
     background-color: black !important;
     margin-top: 0 !important;
@@ -9,4 +11,30 @@
     padding-top: 20px !important;
     padding-bottom: 20px !important;
     padding-left: 10px !important;
+}
+
+.barContainer {
+    display: flex;
+    flex-flow: row;
+}
+
+.bar {
+    height: 1.25rem;
+    width: 25%;
+}
+
+.bar1 {
+    background-color: #fffaaa;
+}
+
+.bar2 {
+    background-color: #ffea30;
+}
+
+.bar3 {
+    background-color: #fdd54f;
+}
+
+.bar4 {
+    background-color: #e4b429;
 }
