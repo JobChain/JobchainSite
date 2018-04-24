@@ -23,8 +23,11 @@ h1 {
 
 .description {
     padding-top:30px;
+    padding-left: 20%;
+    padding-right: 20%;
     font-size: 1.6rem;
     font-family: georgia,"droid serif","Times New Roman",Times,serif;
+    text-align: left;
 }
 
 .headingSection {

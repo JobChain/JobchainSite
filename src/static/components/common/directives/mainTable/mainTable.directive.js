@@ -20,7 +20,13 @@ function mainTable($timeout, req) {
 
         $timeout( function(){
             dTable = $('#user_table');
-            dTable.DataTable();
+              dTable.DataTable({
+                aLengthMenu: [
+                    [25, 50, 100],
+                    [25, 50, 100]
+                ],
+                iDisplayLength: 25
+            });
             $scope.showTable = true;
         }, 0);
       }, function err(response) {
