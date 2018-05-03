@@ -89,8 +89,8 @@ def filterWastemans(users):
                     duration = (datetime.strptime(endDate, "%Y-%m-%d") -  datetime.strptime(startDate, "%Y-%m-%d"))
                     if duration.days < 93 and duration.days > 89:
                         filteredCompanies.append(c)
-                    elif duration.days < 123 and duration.days > 119:
-                        filteredCompanies.append(c)
+                    # elif duration.days < 123 and duration.days > 119:
+                    #     filteredCompanies.append(c)
                     elif duration.days < 248:
                         if ('intern' in title) or ('coop' in title) or ('co-op' in title):
                             filteredCompanies.append(c)
@@ -98,7 +98,7 @@ def filterWastemans(users):
                     filteredCompanies.append(c)
             users[u]['companies'] = filteredCompanies
 
-    filteredUsers = {u:users[u] for u in users if 'companies' in users[u]}
+    filteredUsers = {u:users[u] for u in users if 'companies' in users[u] and users[u]['companies']}
     return filteredUsers
 
 @app.route("/")
