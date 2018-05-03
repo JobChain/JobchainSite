@@ -65,20 +65,41 @@ def get_json():
             'company_name': w['company_name'],
             'start_date': w['start_date'],
             'end_date': w['end_date'],
-            'location': w['location']
+            'location': w['location'],
+            'job_title': w['job_title']
         }
         if 'companies' in users[w['user_id']]:
             users[w['user_id']]['companies'].append(c)
         else:
             users[w['user_id']]['companies'] = [c]
 
+    return json.dumps(filterWastemans(users))
+
+def filterWastemans(users):
     for u in users:
         if 'companies' in users[u]:
             users[u]['companies'].sort(key=lambda x: datetime.strptime(x['start_date'], "%Y-%m-%d"))
-        else:
-            users[u]['companies'] = []
 
-    return json.dumps(users)
+            filteredCompanies = []
+            for c in users[u]['companies']:
+                startDate = c['start_date']
+                endDate = c['end_date']
+                title = c['job_title'].lower()
+                if endDate is not None:
+                    duration = (datetime.strptime(endDate, "%Y-%m-%d") -  datetime.strptime(startDate, "%Y-%m-%d"))
+                    if duration.days < 93 and duration.days > 89:
+                        filteredCompanies.append(c)
+                    elif duration.days < 123 and duration.days > 119:
+                        filteredCompanies.append(c)
+                    elif duration.days < 248:
+                        if ('intern' in title) or ('coop' in title) or ('co-op' in title):
+                            filteredCompanies.append(c)
+                else:
+                    filteredCompanies.append(c)
+            users[u]['companies'] = filteredCompanies
+
+    filteredUsers = {u:users[u] for u in users if 'companies' in users[u]}
+    return filteredUsers
 
 @app.route("/")
 def index():
