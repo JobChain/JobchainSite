@@ -1,4 +1,4 @@
-#user_table_wrapper {
+#company_table_wrapper {
     margin: 40px 60px;
 }
 
@@ -7,10 +7,6 @@ table {
     border: none;
     border-bottom: 1px solid #ddd;
     border-right: 1px solid #ddd;
-}
-
-.actions {
-    text-align: center;
 }
 
 tbody tr:hover {

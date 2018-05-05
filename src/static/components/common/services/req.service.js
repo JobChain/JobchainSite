@@ -4,17 +4,29 @@ angular.module('myApp')
 
       function getTableData() {
         let promise = $http({
-            method: 'GET',
-            url: "/hardcoded_data",
-            headers: {
-                "Content-Type": "application/json"
-            }
+          method: 'GET',
+          url: "/hardcoded_data",
+          headers: {
+            "Content-Type": "application/json"
+          }
         });
         return promise;
       };
 
+      function getCompanyTableData() {
+        let promise = $http({
+          method: 'GET',
+          url: "/company_data",
+          headers: {
+            "Content-Type": "application/json"
+          }
+        });
+        return promise;
+      }
+
       return {
-        getTableData: getTableData
+        getTableData: getTableData,
+        getCompanyTableData: getCompanyTableData
       };
 
   }]);

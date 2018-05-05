@@ -51,6 +51,26 @@ def api_data():
     resp = Response(js, status=200, mimetype='application/json')
     return resp
 
+@app.route('/company_data', methods = ['GET'])
+def get_company_data():
+    with open('../WORK.json') as work_data:
+        work = (json.load(work_data))['work']
+
+    companies = {}
+
+    for w in work:
+        c = w['company_name']
+        if c in companies:
+            companies[c]['userCount'] += 1
+        else:
+            companies[c] = {
+                'company_name': c,
+                'userCount': 1,
+                'positions': []
+            }
+
+    return json.dumps(companies)
+
 @app.route('/hardcoded_data', methods = ['GET'])
 def get_json():
     with open('../LINKEDINUSER.json') as linkedinuser_data:

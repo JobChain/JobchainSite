@@ -1,25 +1,25 @@
 angular.module('myApp')
-  .directive('mainTable', ['$timeout', 'req',
-    mainTable]);
+  .directive('companyTable', ['$timeout', 'req',
+    companyTable]);
 
-function mainTable($timeout, req) {
+function companyTable($timeout, req) {
   return {
-    templateUrl: 'components/common/directives/mainTable/mainTable.html',
+    templateUrl: 'components/common/directives/companyTable/companyTable.html',
     restrict: 'E',
     $scope: {
       
     },
     link: function ($scope, element) {
-      console.log('Main table directive running...');
+      console.log('Company table directive running...');
       $scope.loading = true;
       $scope.showTable = false;
 
-      req.getTableData().then(function success(response) {
-        $scope.users = response.data;
+      req.getCompanyTableData().then(function success(response) {
+        $scope.companies = response.data;
         $scope.loading = false;
 
         $timeout( function(){
-            dTable = $('#user_table');
+            dTable = $('#company_table');
               dTable.DataTable({
                 aLengthMenu: [
                     [25, 50, 100, -1],
