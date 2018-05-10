@@ -55,6 +55,8 @@ def api_data():
 def get_company_data():
     with open('../WORK.json') as work_data:
         work = (json.load(work_data))['work']
+    with open('../COMPANY.json') as company_data:
+        company = (json.load(company_data))['company']
 
     companies = {}
 
@@ -62,12 +64,24 @@ def get_company_data():
         c = w['company_name']
         if c in companies:
             companies[c]['userCount'] += 1
-        else:
+        elif c:
             companies[c] = {
                 'company_name': c,
                 'userCount': 1,
-                'positions': []
+                'positions': [],
+                'logo': '',
+                'url': ''
             }
+
+            company_data = None
+
+            for com in company:
+                if com['id'] == c:
+                    company_data = com
+
+            if company_data:
+                companies[c]['logo'] = company_data['logo']
+                companies[c]['url'] = company_data['url']
 
     return json.dumps(companies)
 
@@ -105,20 +119,28 @@ def filterWastemans(users):
                 startDate = c['start_date']
                 endDate = c['end_date']
                 title = c['job_title'].lower()
+
                 if endDate is not None:
                     duration = (datetime.strptime(endDate, "%Y-%m-%d") -  datetime.strptime(startDate, "%Y-%m-%d"))
+                    start = datetime.strptime(startDate, "%Y-%m-%d").strftime('%B')
+                    jan = datetime.strptime("January", "%B").strftime('%B')
+                    may = datetime.strptime("May", "%B").strftime('%B')
+                    sept = datetime.strptime("September", "%B").strftime('%B')
+
                     if duration.days < 93 and duration.days > 89:
-                        filteredCompanies.append(c)
-                    # elif duration.days < 123 and duration.days > 119:
-                    #     filteredCompanies.append(c)
-                    elif duration.days < 248:
-                        if ('intern' in title) or ('coop' in title) or ('co-op' in title):
+                        if start == jan or start == may or start == sept:
                             filteredCompanies.append(c)
-                else:
-                    filteredCompanies.append(c)
+                    elif duration.days < 123 and duration.days > 119:
+                        if start == jan or start == may or start == sept:
+                            filteredCompanies.append(c)
+                    elif duration.days < 248 and duration.days > 240:
+                        if start == jan or start == may or start == sept:
+                            filteredCompanies.append(c)
+                    elif ('intern' in title.lower()) or ('coop' in title.lower()) or ('co-op' in title.lower()) or ('internship' in title.lower()):
+                        filteredCompanies.append(c)
             users[u]['companies'] = filteredCompanies
 
-    filteredUsers = {u:users[u] for u in users if 'companies' in users[u] and users[u]['companies']}
+    filteredUsers = {u:users[u] for u in users if 'companies' in users[u] and len(users[u]['companies']) > 1}
     return filteredUsers
 
 @app.route("/")

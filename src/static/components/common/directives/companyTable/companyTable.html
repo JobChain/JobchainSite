@@ -8,12 +8,14 @@
         <tr>
             <td>Company</td>
             <td>Number of terms</td>
+            <!--<td>Image</td>-->
         </tr>
     </thead>
     <tbody>
         <tr ng-repeat="c in companies" ng-if="c.userCount > 2">
             <td>{{ '{{c.company_name}}' }}</td>
             <td>{{ '{{c.userCount}}' }}</td>
+            <!--<td><img src={{ '{{c.logo}}' }}/></td>-->
         </tr>
     </tbody>
 </table>

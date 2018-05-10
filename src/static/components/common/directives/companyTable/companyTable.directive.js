@@ -25,7 +25,8 @@ function companyTable($timeout, req) {
                     [25, 50, 100, -1],
                     [25, 50, 100, 'All']
                 ],
-                iDisplayLength: 25
+                iDisplayLength: 25,
+                order: [[ 1, "desc" ]]
             });
             $scope.showTable = true;
         }, 0);
