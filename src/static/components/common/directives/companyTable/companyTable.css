@@ -13,10 +13,6 @@ tbody tr:hover {
     background-color: #eee;
 }
 
-tbody td:first-child {
-    background-color: #eee;
-}
-
 td {
     overflow: scroll; 
     padding: 5px !important;

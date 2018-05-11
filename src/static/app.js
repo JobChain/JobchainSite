@@ -6,6 +6,11 @@ angular.module('myApp', ['ngRoute', 'ngMaterial'])
             controller: 'studentsCtrl',
             controllerAs: 'vm'
         })
+        .when("/comments", {
+            templateUrl: "components/comments/comments.view.html",
+            controller: 'commentsCtrl',
+            controllerAs: 'vm'
+        })
         .when("/companies", {
             templateUrl: "components/companies/companies.view.html",
             controller: 'companiesCtrl',
