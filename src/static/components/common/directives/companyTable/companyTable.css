@@ -59,3 +59,9 @@ tr:nth-child(even) {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+td > div {
+    height: 30px !important;
+    min-height: 30px !important;
+    max-height: 30px !important;
+}

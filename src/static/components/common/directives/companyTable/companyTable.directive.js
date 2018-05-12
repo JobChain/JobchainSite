@@ -26,7 +26,16 @@ function companyTable($timeout, req) {
                     [25, 50, 100, 'All']
                 ],
                 iDisplayLength: 25,
-                order: [[ 1, "desc" ]]
+                order: [[ 2, "desc" ]],
+                columns: [
+                  null,
+                  {
+                    "render": function(data, type, row){
+                        return data.split("*").join("<br/>");
+                    }
+                  },
+                  null
+                ]
             });
             $scope.showTable = true;
         }, 0);

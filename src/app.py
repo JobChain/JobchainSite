@@ -82,6 +82,16 @@ def get_company_data():
             if company_data:
                 companies[c]['logo'] = company_data['logo']
                 companies[c]['url'] = company_data['url']
+                if 'locations' in company_data:
+                    loc = company_data['locations']
+                    pretty = ""
+                    for l in loc:
+                        if l is not ("" or " "):
+                            pretty = pretty + l
+                            pretty = pretty + '*'
+                    companies[c]['locations'] = pretty
+                else:
+                    companies[c]['locations'] = ''
 
     return json.dumps(companies)
 
@@ -137,6 +147,14 @@ def filterWastemans(users):
                         if start == jan or start == may or start == sept:
                             filteredCompanies.append(c)
                     elif ('intern' in title.lower()) or ('coop' in title.lower()) or ('co-op' in title.lower()) or ('internship' in title.lower()):
+                        filteredCompanies.append(c)
+                else:
+                    start = datetime.strptime(startDate, "%Y-%m-%d")
+                    may = datetime.strptime("2018-05-01", "%Y-%m-%d")
+                    duration = (may - start).days
+                    if ('intern' in title.lower()) or ('coop' in title.lower()) or ('co-op' in title.lower()) or ('internship' in title.lower()):
+                        filteredCompanies.append(c)
+                    elif duration < 5:
                         filteredCompanies.append(c)
             users[u]['companies'] = filteredCompanies
 
