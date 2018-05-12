@@ -12784,6 +12784,9 @@
     {"id": "23511", "company_name": "Kobo Inc.", "user_id": "/in/chonglarry/", "job_title": "Quality Assurance Analyst", "location": "Ontario, Canada", "start_date": "2011-01-01", "end_date": "2011-04-01", "current": null},
     {"id": "23513", "company_name": "(Fileco Inc) Teknion", "user_id": "/in/chonglarry/", "job_title": "Process Engineer", "location": "Ontario, Canada", "start_date": "2009-09-01", "end_date": "2009-12-01", "current": null},
     {"id": "23515", "company_name": "CBC", "user_id": "/in/chonglarry/", "job_title": "Senior Full Stack Developer, Conversational UI - Voice and Chatbots", "location": null, "start_date": "2018-04-01", "end_date": null, "current": null},
-    {"id": "23517", "company_name": "mAIgic Inc.", "user_id": "/in/chonglarry/", "job_title": "Co-Founder", "location": null, "start_date": "2016-01-01", "end_date": null, "current": null}
+    {"id": "23517", "company_name": "mAIgic Inc.", "user_id": "/in/chonglarry/", "job_title": "Co-Founder", "location": null, "start_date": "2016-01-01", "end_date": null, "current": null},
+    {"id": "23522", "company_name": "Square", "user_id": "/in/ryan-stephens96/", "job_title": "Software Engineering Intern", "location": "San Francisco Bay Area", "start_date": "2018-01-01", "end_date": "2018-04-01", "current": null},
+    {"id": "23523", "company_name": "Gametime United", "user_id": "/in/ryan-stephens96/", "job_title": "Backend Software Engineering Intern", "location": "San Francisco Bay Area", "start_date": "2017-05-01", "end_date": "2017-08-01", "current": null},
+    {"id": "23524", "company_name": "NCR Corporation", "user_id": "/in/ryan-stephens96/", "job_title": "Software Developer", "location": "Kitchener, Canada Area", "start_date": "2016-05-01", "end_date": "2016-12-01", "current": null}
   ]
 }

@@ -3928,6 +3928,7 @@
     {"id": "8954", "school_name": "University of Waterloo", "user_id": "/in/marietafarova/", "program": "Bachelor of Applied Science (BASc), Computer Engineering", "location": null, "start_date": "2013-09-01", "end_date": "2018-06-01", "current": null, "duration": null},
     {"id": "8958", "school_name": "University of Waterloo", "user_id": "/in/matthew-koolen-70a8b1125/", "program": "Bachelor's degree, Computer Science", "location": null, "start_date": "2013-09-01", "end_date": "2018-06-01", "current": null, "duration": null},
     {"id": "8964", "school_name": "University of Waterloo", "user_id": "/in/harry-dong-919802121/", "program": "Bachelor of Software Engineering - BSE, Software Engineering", "location": null, "start_date": "2017-09-01", "end_date": "2022-06-01", "current": null, "duration": null},
-    {"id": "8965", "school_name": "University of Toronto Schools", "user_id": "/in/harry-dong-919802121/", "program": "High School", "location": null, "start_date": "2011-09-01", "end_date": "2017-06-01", "current": null, "duration": null}
+    {"id": "8965", "school_name": "University of Toronto Schools", "user_id": "/in/harry-dong-919802121/", "program": "High School", "location": null, "start_date": "2011-09-01", "end_date": "2017-06-01", "current": null, "duration": null},
+    {"id": "8966", "school_name": "University of Waterloo", "user_id": "/in/ryan-stephens96/", "program": "Bachelor's degree, Computer Science", "location": null, "start_date": "2014-09-01", "end_date": "2019-06-01", "current": null, "duration": null}
   ]
 }
