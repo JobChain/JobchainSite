@@ -25,6 +25,7 @@ function companyTable($timeout, req) {
                     [25, 50, 100, -1],
                     [25, 50, 100, 'All']
                 ],
+                deferRender: true,
                 iDisplayLength: 25,
                 order: [[ 2, "desc" ]],
                 columns: [
